@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df417e5-5ae4-48f6-ad0d-d99938a267a4" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readme/规划篇/规划篇.md" afterPath="$PROJECT_DIR$/readme/规划篇/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readme/路由与Auth类/路由与Auth类.md" afterPath="$PROJECT_DIR$/readme/路由与Auth类/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="shizai.iws" />
@@ -273,7 +271,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459344643961</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1459345034068</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1459345034068</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
