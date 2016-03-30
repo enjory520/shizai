@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df417e5-5ae4-48f6-ad0d-d99938a267a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Common/Conf/tags.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/Behaviors/AuthBehavior.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/Conf/router.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Common/16_03_30.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Org/Util/Auth.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme/规划篇/规划篇.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme/路由与Auth类/路由与Auth类.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/shizai.iml" afterPath="$PROJECT_DIR$/.idea/shizai.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/readme/规划篇/规划篇.md" afterPath="$PROJECT_DIR$/readme/规划篇/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/readme/路由与Auth类/路由与Auth类.md" afterPath="$PROJECT_DIR$/readme/路由与Auth类/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Conf/config.php" afterPath="$PROJECT_DIR$/Application/Common/Conf/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Conf/config.php" afterPath="$PROJECT_DIR$/Application/Home/Conf/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/16_03_30.log" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Home/16_03_30.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="shizai.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,8 +46,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="规划篇.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/readme/规划篇/规划篇.md">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme/规划篇/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor vertical-scroll-proportion="0.0">
@@ -72,8 +62,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="路由与Auth类.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/readme/路由与Auth类/路由与Auth类.md">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme/路由与Auth类/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor vertical-scroll-proportion="0.0">
@@ -277,7 +267,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459315634539</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1459344643961</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1459344643961</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -500,7 +496,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme/规划篇/规划篇.md">
+    <entry file="file://$PROJECT_DIR$/readme/规划篇/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.0">
@@ -514,7 +510,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme/路由与Auth类/路由与Auth类.md">
+    <entry file="file://$PROJECT_DIR$/readme/路由与Auth类/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.0">
