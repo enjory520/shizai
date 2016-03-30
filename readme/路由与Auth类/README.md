@@ -13,19 +13,21 @@
 
 ###建立Router
 在配置`Home/Conf/config.php`中开启路由，同时为了将路由单独分离出来，我们在这个文件夹下面单独建一个`router.php`，并在`Home/Conf/config.php`这样写：
-
+```php
     <?php
     return array(
     	//'配置项'=>'配置值'
         'URL_ROUTER_ON'   => true,
         'URL_ROUTE_RULES'=> include_once __DIR__.'/router.php',
     );
+```
 之后我们在router.php添加测试路由
-
+```php
     <?php
     return array(
         'news/:id'               => 'Index/index',
     );
+```
 访问`http://localhost/news/1`，之后我们发现`无法加载模块:News`的错误提示，那是因为我们没有绑定默认模块，所以必须用`http://localhost/Home/news/1`访问，或者在`index.php`添加`define('BIND_MODULE','Home');`
 
 解决好上面问题，我们就能看主页了。
@@ -33,7 +35,7 @@
 ###设置权限验证类
 
  - 建立用户表
-
+```sql
     CREATE TABLE `users` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `tel` varchar(19) NOT NULL COMMENT '手机号',
@@ -42,9 +44,9 @@
       `nick` varchar(45) DEFAULT NULL COMMENT '昵称',
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+```
  - 建立AccessToken表
-
+```sql
     CREATE TABLE `access_token` (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `token` char(60) NOT NULL DEFAULT '',
@@ -52,17 +54,18 @@
       `failuretime` int(11) NOT NULL COMMENT '失效时间 时间戳',
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-    
+```
  - 建立角色组表
+```sql
     CREATE TABLE `role_group` (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `name` varchar(20) DEFAULT NULL COMMENT '用户组名称',
       `rules` varchar(1000) DEFAULT NULL COMMENT '规则数组',
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+```
  - 建立规则表
-
+```sql
     CREATE TABLE `rule` (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `action` varchar(20) DEFAULT NULL COMMENT '动作标识 唯一标识',
@@ -75,19 +78,20 @@
       PRIMARY KEY (`id`),
       UNIQUE KEY `action` (`action`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+```
  - 建立用户归属角色组表
+```sql
     CREATE TABLE `role_user_play` (
       `uid` int(11) NOT NULL,
       `rid` int(11) NOT NULL,
       PRIMARY KEY (`uid`,`rid`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+```
 建立好以上表，下面我们来建立权限验证的类库扩展
 在`ThinkPHP/Libaray/Org/Util`下建立`Auth.class.php`
 
 代码如下
-
+```php
     <?php
     
     namespace Org\Util;
@@ -224,6 +228,6 @@
             return $str;
         }
     }
-    
+```  
 
 >未完待续...
