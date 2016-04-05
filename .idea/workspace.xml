@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df417e5-5ae4-48f6-ad0d-d99938a267a4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/readme/规划篇/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/readme/路由与Auth类/README.md" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="shizai.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +65,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="11.611296">
-                <caret line="466" column="46" selection-start-line="466" selection-start-column="46" selection-end-line="466" selection-end-column="46" />
+              <first_editor vertical-scroll-proportion="0.29900333">
+                <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -312,7 +309,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459865349160</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="修改readme">
+      <created>1459865568411</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1459865568411</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -357,7 +360,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Auth部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth部分" />
+    <MESSAGE value="修改readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -577,8 +581,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="11.611296">
-            <caret line="466" column="46" selection-start-line="466" selection-start-column="46" selection-end-line="466" selection-end-column="46" />
+          <first_editor vertical-scroll-proportion="0.29900333">
+            <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
             <folding />
           </first_editor>
           <second_editor />
