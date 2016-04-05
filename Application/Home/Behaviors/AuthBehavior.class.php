@@ -6,9 +6,9 @@ namespace Home\Behaviors;
  * Date: 16/3/30
  * Time: 下午2:01
  */
+
 class AuthBehavior extends \Think\Behavior
 {
-
 
     /**
      * 执行行为 run方法是Behavior唯一的接口
@@ -18,7 +18,12 @@ class AuthBehavior extends \Think\Behavior
      */
     public function run(&$params)
     {
-        dump(CONTROLLER_NAME.'->'.ACTION_NAME);
-        dump($_SERVER);
+        $auth = new \Org\Util\Auth();
+        $params->setAuth($auth);
+        $auth->setTargetModel($params->getTargetModel());
+        $auth_result = $auth->checkPermission(CONTROLLER_NAME.'::'.ACTION_NAME);
+        if(!$auth_result){
+            $params->error($auth->getErroeMsg());
+        }
     }
 }

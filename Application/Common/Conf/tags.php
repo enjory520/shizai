@@ -7,5 +7,5 @@
  */
 
 return array(
-    'action_begin'=>array('Home\\Behaviors\\AuthBehavior'),
+    'auth'=>array('Home\\Behaviors\\AuthBehavior'),
 );

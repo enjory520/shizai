@@ -34,15 +34,18 @@ class Auth
 
     /**
      * 设置检查模块对象信息
-     * @param $t
-     * @param $key
-     * @param null $f
+     * @param $t 对象模块名称
+     * @param $key 目标主键
+     * @param null $f 外键
      */
-    public function setTargetModel($t,$key,$f = null){
-        $k == null || $this->foreignKey = $f;
+    public function setTargetModel($arr){
+        $t = $arr[0];
+        $key = $arr[1];
+        $f = $arr[2];
+
+        $f == null || $this->foreignKey = $f;
         $this->targetModel = $t;
         $this->targetKey = $key;
-
     }
     /**
      * 判断用户是否已经登录
@@ -52,8 +55,12 @@ class Auth
      */
     private function checkLogin(){
         $userModel = M($this->table_users);
+        $accesstoken = I('server.HTTP_ACCESS_TOKEN',null);
+        if(!$accesstoken){
+            $this->errormsg = '请输入您的accesstoken!';
+            return false;
+        }
         $accessTokenModel = M($this->table_access_token);
-        $accesstoken = I('server.HTTP_ACCESS_TOKEN','');
         $tokenInfo = $accessTokenModel->where("'token = '%s'",$accesstoken)->find();
         if(!$tokenInfo){
             $this->errormsg = '认证失败!';
@@ -67,6 +74,33 @@ class Auth
 
         $this->user = $userModel->find($tokenInfo['uid']);
         return true;
+    }
+
+    public function refreshToken(){
+        $accesstoken = I('server.HTTP_ACCESS_TOKEN',null);
+        if(!$accesstoken){
+            $this->errormsg = '请输入您的accesstoken!';
+            return false;
+        }
+        $accessTokenModel = M($this->table_access_token);
+        $tokenInfo = $accessTokenModel->where("'token = '%s'",$accesstoken)->find();
+        if(!$tokenInfo){
+            $this->errormsg = '无效请输入您的accesstoken!';
+            return false;
+        }
+
+        if($tokenInfo['failuretime'] < time()){
+            $this->errormsg = '认证已经失效,请重新认证!';
+            return false;
+        }
+
+        $time = strtotime("+30 day");
+
+        $data = array(
+            'failuretime'=> $time
+        );
+        $accessTokenModel->where("'token = '%s'",$accesstoken)->save($data);
+        return $time;
     }
 
 
@@ -85,13 +119,13 @@ class Auth
             return true;
 
         //判断用户登录与非
-        if($this->checkLogin())
+        if(!$this->checkLogin())
             return false;
 
         $checkResult = false;
         //获取该用户的用户组并关联出该用户组拥有的全部动作id集合
         $roleUserPlayModel = M($this->table_role_user_play)->where('uid = %d',$this->user['id']);
-        $roleUserPlayModel = $roleUserPlayModel->join($this->table_role_group.'AS table_role_group on '.$this->table_rule.'.rid = table_role_group.id','LEFT');
+        $roleUserPlayModel = $roleUserPlayModel->join($this->table_role_group.' AS table_role_group on '.$this->table_rule.'.rid = table_role_group.id','LEFT');
         $groups = $roleUserPlayModel->select();
         $permission_ids = array();
         foreach($groups as $group){
@@ -103,6 +137,20 @@ class Auth
         //判断动作是否
         if(in_array($rule['id'],$permission_ids))
             $checkResult = true;
+
+        if (!empty($rule['condition'])) {
+            //条件验证
+            $user = $this->user;
+            $command = preg_replace('/\{(\w*?)\}/', '$user[\'\\1\']', $rule['condition']);
+            //dump($command);//debug
+            $condition = false;
+            @(eval('$condition=(' . $command . ');'));
+
+            if (!$condition) {
+                $this->errormsg = "用户 $command ,不符合要求的 ".$rule['condition']." 条件!";
+                return false;
+            }
+        }
 
         //判断是否需要验证用户是否拥有模块
         if($rule['type'] == $this::TYPE_OWNER){
@@ -136,15 +184,17 @@ class Auth
      *
      * @param $uid
      * @param int $days
+     * @param $time
      * @return null|string
      */
-    public function awardAccessToken($uid,$days = 180){
+    public function awardAccessToken($uid,$days = 30,&$time){
         $token = $this->getRandChar();
         $accessTokenModel = M($this->table_access_token);
+        $time = strtotime("+$days day");
         $data = array(
             'token'=>$token,
             'uid'=>$uid,
-            'failuretime'=>strtotime("+$days day")
+            'failuretime'=> $time
         );
         $accessTokenModel->add($data);
         return $token;
